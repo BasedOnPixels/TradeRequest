@@ -47,7 +47,6 @@ namespace TradeRequest
         {
             ServerApi.Hooks.GameInitialize.Register(this, OnInitialize);
             ServerApi.Hooks.GameUpdate.Register(this, OnUpdate);
-            ServerApi.Hooks.NetGetData.Register(this, GetData, 10);
             GetDataHandlers.InitGetDataHandler();
         }
 
@@ -116,62 +115,6 @@ namespace TradeRequest
                 }
             }
             #endregion
-        }
-
-        private void GetData(GetDataEventArgs e)
-        {
-            PacketTypes type = e.MsgID;
-            var player = TShock.Players[e.Msg.whoAmI];
-            if (player == null)
-            {
-                e.Handled = true;
-                return;
-            }
-
-            if (!player.ConnectionAlive)
-            {
-                e.Handled = true;
-                return;
-            }
-
-            if (e.MsgID == PacketTypes.PlayerUpdate)
-            {
-                using (MemoryStream ms = new MemoryStream(e.Msg.readBuffer, e.Index, e.Length - 1))
-                {
-                    ms.ReadInt8();
-                    var control = (BitsByte)ms.ReadInt8();
-                    ms.ReadInt8();
-                    byte item = ms.ReadInt8();
-
-                    if (control[5])
-                    {
-                        if (TShock.Itembans.ItemIsBanned(player.TPlayer.inventory[item].name, player))
-                        {
-                            control[5] = false;
-                            ItemBan ban = TShock.Itembans.GetItemBanByName(player.TPlayer.inventory[item].name);
-                            if (ban.AllowedGroups.Count > 0)
-                            {
-                                player.Disable("Empty", 0);
-                                player.SendMessage(
-                                    string.Format("You must be level {0} to use this item.", ban.AllowedGroups[0]), Color.Red);
-                            }
-                        }
-                    }
-                }
-            }
-
-            using (var data = new MemoryStream(e.Msg.readBuffer, e.Index, e.Length))
-            {
-                try
-                {
-                    if (GetDataHandlers.HandlerGetData(type, player, data))
-                        e.Handled = true;
-                }
-                catch (Exception ex)
-                {
-                    TShock.Log.Error(ex.ToString());
-                }
-            }
         }
     }
 }
