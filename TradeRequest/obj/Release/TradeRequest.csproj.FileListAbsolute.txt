@@ -1,0 +1,7 @@
+C:\Users\Marcus101RR\Desktop\TShock\TradeRequest\TradeRequest\bin\Release\TradeRequest.dll
+C:\Users\Marcus101RR\Desktop\TShock\TradeRequest\TradeRequest\bin\Release\TradeRequest.pdb
+C:\Users\Marcus101RR\Desktop\TShock\TradeRequest\TradeRequest\bin\Release\Newtonsoft.Json.dll
+C:\Users\Marcus101RR\Desktop\TShock\TradeRequest\TradeRequest\bin\Release\TerrariaServer.exe
+C:\Users\Marcus101RR\Desktop\TShock\TradeRequest\TradeRequest\bin\Release\TShockAPI.dll
+C:\Users\Marcus101RR\Desktop\TShock\TradeRequest\TradeRequest\obj\Release\TradeRequest.dll
+C:\Users\Marcus101RR\Desktop\TShock\TradeRequest\TradeRequest\obj\Release\TradeRequest.pdb

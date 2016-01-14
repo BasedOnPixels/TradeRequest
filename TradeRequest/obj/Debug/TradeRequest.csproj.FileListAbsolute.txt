@@ -1,0 +1,8 @@
+C:\Users\Marcus101RR\Desktop\TShock\TradeRequest\TradeRequest\obj\Debug\TradeRequest.csprojResolveAssemblyReference.cache
+C:\Users\Marcus101RR\Desktop\TShock\TradeRequest\TradeRequest\bin\Debug\TradeRequest.dll
+C:\Users\Marcus101RR\Desktop\TShock\TradeRequest\TradeRequest\bin\Debug\TradeRequest.pdb
+C:\Users\Marcus101RR\Desktop\TShock\TradeRequest\TradeRequest\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Marcus101RR\Desktop\TShock\TradeRequest\TradeRequest\bin\Debug\TerrariaServer.exe
+C:\Users\Marcus101RR\Desktop\TShock\TradeRequest\TradeRequest\bin\Debug\TShockAPI.dll
+C:\Users\Marcus101RR\Desktop\TShock\TradeRequest\TradeRequest\obj\Debug\TradeRequest.dll
+C:\Users\Marcus101RR\Desktop\TShock\TradeRequest\TradeRequest\obj\Debug\TradeRequest.pdb
