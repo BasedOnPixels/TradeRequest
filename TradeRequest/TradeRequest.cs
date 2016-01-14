@@ -50,16 +50,6 @@ namespace TradeRequest
             GetDataHandlers.InitGetDataHandler();
         }
 
-        private void OnPlayerCommand(PlayerCommandEventArgs args)
-        {
-            if (args.Handled || args.Player == null)
-                return;
-
-            Command command = args.CommandList.FirstOrDefault();
-            if (command == null || (command.Permissions.Any() && !command.Permissions.Any(s => args.Player.Group.HasPermission(s))))
-                return;
-        }
-
         private void OnInitialize(EventArgs args)
         {
             #region Commands
@@ -83,7 +73,6 @@ namespace TradeRequest
             {
                 ServerApi.Hooks.GameUpdate.Deregister(this, OnUpdate);
                 ServerApi.Hooks.GameInitialize.Deregister(this, OnInitialize);
-                PlayerHooks.PlayerCommand -= OnPlayerCommand;
             }
             base.Dispose(disposing);
         }
