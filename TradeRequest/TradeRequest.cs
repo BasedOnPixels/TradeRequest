@@ -62,7 +62,7 @@ namespace TradeRequest
             Add(new Command(Permissions.canchat, Commands.Trade, "trade")
             {
                 AllowServer = true,
-                HelpText = "Get the world data info"
+                HelpText = "Allows the player to trade with another player."
             });
             #endregion
         }
