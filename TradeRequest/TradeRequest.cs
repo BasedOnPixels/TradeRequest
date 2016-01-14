@@ -62,8 +62,6 @@ namespace TradeRequest
 
         private void OnInitialize(EventArgs args)
         {
-
-            PlayerHooks.PlayerCommand -= OnPlayerCommand;
             #region Commands
             Action<Command> Add = c =>
             {
