@@ -69,7 +69,7 @@ namespace TradeRequest
                 }
                 else
                 {
-                    player.SendInfoMessage("You must send a trade request.");
+                    player.SendInfoMessage("You must send a trade request. Please use /trade <player>");
                     return;
                 }
             }
@@ -95,12 +95,19 @@ namespace TradeRequest
                     trader.target = found.Index;
                     trader.item = player.TPlayer.trashItem.netID;
                     trader.time = DateTime.UtcNow;
+                    TradePlayer target = TradeRequest.TradeActive[found.Index];
+                    if (target.active == true)
+                    {
+                        target.time = DateTime.UtcNow;
+                    }
                 }
                 else
+                {
                     player.SendErrorMessage("You already have a trade active.");
-
+                    return;
+                }
                 player.SendInfoMessage("You have sent a trade request to {0}. You can cancel your trade by removing the item.", found.Name);
-                found.SendInfoMessage("{0} would like to trade [i/s{1}:{2}]. Type [c/FFFFFF:/trade confirm] after providing your offer.", player.Name, player.TPlayer.trashItem.stack, player.TPlayer.trashItem.netID);
+                found.SendInfoMessage("{0} would like to trade [i/s{1}:{2}]. Type [c/FFFFFF:/trade confirm] after [c/FFFFFF:/trade {0}].", player.Name, player.TPlayer.trashItem.stack, player.TPlayer.trashItem.netID);
             }
         }
     }
