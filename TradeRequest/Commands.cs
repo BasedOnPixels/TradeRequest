@@ -12,13 +12,18 @@ namespace TradeRequest
     {
         public static void Trade(CommandArgs args)
         {
+            if (!Main.ServerSideCharacter)
+            {
+                args.Player.SendErrorMessage("TShock Server Sided Characters is disabled.");
+                return;
+            }
             if (args.Parameters.Count < 1)
             {
                 args.Player.SendErrorMessage("Invalid syntax! Proper syntax: /trade <player/id>");
                 return;
             }
-            var player = args.Player;
 
+            var player = args.Player;
             if (player.TPlayer.trashItem.netID == 0)
             {
                 player.SendErrorMessage("You must have an item in the Trash Bin to trade.");
