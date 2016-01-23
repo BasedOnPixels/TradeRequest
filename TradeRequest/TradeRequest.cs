@@ -1,13 +1,9 @@
 ﻿using System;
-using System.IO;
-using System.IO.Streams;
 using System.Linq;
 using System.Reflection;
 using Terraria;
 using TerrariaApi.Server;
 using TShockAPI;
-using TShockAPI.DB;
-using TShockAPI.Hooks;
 
 namespace TradeRequest
 {
@@ -31,11 +27,9 @@ namespace TradeRequest
             get { return "Allow trading with other players."; }
         }
 
-        // Trade System
         public static TradePlayer[] TradeActive = new TradePlayer[Main.maxPlayers];
 
-        public TradeRequest(Main game)
-            : base(game)
+        public TradeRequest(Main game) : base(game)
         {
             Order = 9;
 
