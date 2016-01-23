@@ -43,11 +43,9 @@ namespace TradeRequest
                         var pItem = trader.item;
                         var pStack = player.TPlayer.trashItem.stack;
                         var pPrefix = player.TPlayer.trashItem.prefix;
-                        var pAmount = trader.amount;
                         var tItem = target.item;
                         var tStack = targetplayer.TPlayer.trashItem.stack;
                         var tPrefix = targetplayer.TPlayer.trashItem.prefix;
-                        var tAmout = target.amount;
 
                         player.TPlayer.trashItem.netDefaults(tItem);
                         if (player.TPlayer.trashItem.netID != 0)
@@ -128,7 +126,7 @@ namespace TradeRequest
                     return;
                 }
                 player.SendInfoMessage("You have sent a trade request to {0}. Cancel the trade by removing the item.", found.Name);
-                found.SendInfoMessage("{0} would like to trade {1}. Type [c/FFFFFF:/trade confirm] after [c/FFFFFF:/trade {0}].", player.Name, trader.amount > 0 ? trader.amount.ToString() + " Gem(s)" : "[i/s" + player.TPlayer.trashItem.stack + ":" + player.TPlayer.trashItem.netID + "]");
+                found.SendInfoMessage("{0} would like to trade [i/s{1}:{2}]. Type [c/FFFFFF:/trade confirm] after [c/FFFFFF:/trade {0}].", player.Name, player.TPlayer.trashItem.stack, player.TPlayer.trashItem.netID);
             }
         }
     }
