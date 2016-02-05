@@ -21,7 +21,6 @@ namespace TradeRequest
             }
 
             var player = args.Player;
-            int amount = 0;
             if (player.TPlayer.trashItem.netID == 0)
             {
                 player.SendErrorMessage("You must have an item in the Trash Bin to trade.");
